@@ -1,0 +1,72 @@
+<QuizManager>:
+    Question1Screen:
+        name: "question1"
+    CorrectScreen:
+        name: "correct"
+    ErrorScreen:
+        name: "error"
+    Question2Screen:
+        name: "question2"
+
+
+
+
+
+
+
+
+
+<Question1Screen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "What is 9+10?"
+            size_hint: 1,2
+            font_size: 100
+        BoxLayout:
+            Button:
+                text: "This meme is not funny, its long dead."
+                on_release: root.answer_question(False)
+            Button:
+                text: "twenty-one!"
+                color: "orange"
+                background_normal: "twenty-one.jpeg"
+                on_release: root.answer_question(True)
+            Button:
+                text: "19"
+                on_release: root.answer_question(False)
+<CorrectScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Correct!"
+            size_hint: 1,2.5
+            font_size: 100
+            color: "green"
+        Button:
+            text: "Next"
+            on_release: root.next_question()
+<ErrorScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Wrong!"
+            size_hint: 1,2.5
+            font_size:100
+            color: "red"
+        Button:
+            text: "Next"
+            on_release: root.next_question()
+
+<Question2Screen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "What is red and blue combined?"
+            size_hint: 1,7
+        TextInput:
+            id: heart
+            hint_text: "Enter color no caps no spaces"
+        Button:
+            text: "Press Enter"
+            on_release: root.answer_question(heart.text)
