@@ -1,21 +1,53 @@
+
 <LoginManager>:
     LoginScreen:
         name: "login"
+    WelcomeScreen:
+        name: "welcome"
+    SignupScreen:
+        name:"signup"
 
 
 <LoginScreen>:
-    StackLayout:
+    BoxLayout:
+        orientation: "vertical"
+
         Label:
             text: ""
+            id: notif
         GridLayout:
-            rows: 2
-
+            padding:"200dp"
+            size_hint: 1,20
+            rows:2
             Label:
-                text: "Username:"
+                text:"Username:"
             TextInput:
-
+                id: username
             Label:
-                text: "Password:"
+                text:"Password:"
             TextInput:
+                id: password
+        BoxLayout:
+            size_hint: .5,2
+            Button:
+                on_release: root.login(username.text,password.text)
+                text: "LOGIN"
+            Button:
+                on_release: root.signup()
+                text: "SIGNUP"
 
+        Label:
+            text:""
 
+<WelcomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Welcome to !"
+        Button:
+            text:"Log Out"
+            size_hint:1,.2
+            on_release: root.logout()
+<SignupScreen>:
+    Label:
+        text: "u thought u could sign up lmao"

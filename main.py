@@ -30,16 +30,33 @@ from kivy.app import App
 #
 #
 Builder.load_file("LoginPage.kv")
+
+users = {"MrGreen":"$$$$$$"}
 class LoginPageApp(App):
     def build(self):
         return LoginManager()
+
 #
 #
 class LoginManager(ScreenManager):
     pass
 
-
+class WelcomeScreen(Screen):
+    def logout(self):
+        self.manager.current="login"
 class LoginScreen(Screen):
+    def login(self,username,password):
+        if username in users:
+            if password==users[username]:
+                self.manager.current="welcome"
+            else:
+                self.ids.notif.text="Incorrect Password!"
+        else:
+            self.ids.notif.text = "User does not exist"
+    def signup(self):
+        self.manager.current="signup"
+class SignupScreen(Screen):
     pass
-
 LoginPageApp().run()
+
+print("AAAAAAA")
