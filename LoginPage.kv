@@ -49,5 +49,21 @@
             size_hint:1,.2
             on_release: root.logout()
 <SignupScreen>:
-    Label:
-        text: "u thought u could sign up lmao"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text:""
+        GridLayout:
+            padding:"200dp"
+            size_hint:1,20
+            rows:2
+            Label:
+                text: "New Username:"
+            TextInput:
+                id: "newuser"
+            Label:
+                text: "New Password:"
+            TextInput:
+                id: "newpass"
+            Label:
+                text: "Repeat Password"
