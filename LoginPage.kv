@@ -33,7 +33,7 @@
                 on_release: root.login(username.text,password.text)
                 text: "LOGIN"
             Button:
-                on_release: root.signup()
+                on_release: root.gosignup()
                 text: "SIGNUP"
 
         Label:
@@ -53,6 +53,7 @@
         orientation: "vertical"
         Label:
             text:""
+            id: "sign_notif"
         GridLayout:
             padding:"200dp"
             size_hint:1,20
@@ -60,10 +61,18 @@
             Label:
                 text: "New Username:"
             TextInput:
-                id: "newuser"
+                id: newuser
             Label:
                 text: "New Password:"
             TextInput:
-                id: "newpass"
+                id: newpass
             Label:
-                text: "Repeat Password"
+                text: "Repeat Password:"
+            TextInput:
+                id: newpass2
+            Label:
+                text:""
+            Button:
+                text:"Sign Up"
+                on_release: root.signup(newuser.text,newpass.text,newpass2.text)
+
